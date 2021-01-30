@@ -80,8 +80,47 @@ router.post(
 
 //update consumer details with put and need id of the consumer that we updating
 
-router.put("/:id", (req, res) => {
-  res.send("updating particular consumer details");
+router.put("/:id", auth, async (req, res) => {
+  const {
+    first_name,
+    last_name,
+    email,
+    phone,
+    address,
+    symptoms,
+    travel_history,
+    type,
+  } = req.body;
+
+  //building consumer object
+  const consumerFields = {};
+  if (first_name) consumerFields.first_name = first_name;
+  if (last_name) consumerFields.last_name = last_name;
+  if (email) consumerFields.email = email;
+  if (phone) consumerFields.phone = phone;
+  if (address) consumerFields.address = address;
+  if (symptoms) consumerFields.symptoms = symptoms;
+  if (travel_history) consumerFields.travel_history = travel_history;
+  if (type) consumerFields.type = type;
+
+  try {
+    let consumer = await Consumer.findById(req.params.id);
+    if (!consumer) return res.status(404).json({ msg: "" });
+
+    // making sure unauthorize access cannot me made
+    if (consumer.user.toString() !== req.user.id) {
+      return res.status(401).json({ msg: "unauthorize" });
+    }
+    consumer = await Consumer.findByIdAndUpdate(
+      req.params.id,
+      { $set: consumerFields },
+      { new: true }
+    );
+    res.json(consumer);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("server error");
+  }
 });
 
 //delete consumer details with delete and need id of the consumer we deleting
