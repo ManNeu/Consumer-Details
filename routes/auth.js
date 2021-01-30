@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const auth = require("../middleware/auth");
 
 const { body, validationResult } = require("express-validator");
 
@@ -11,8 +12,15 @@ const User = require("../models/User");
 //need two routes get the logged in user and login user and get token
 
 //Get route to get infomation about logged in user
-router.get("/", (req, res) => {
-  res.send("get the logged in user");
+router.get("/", auth, async (req, res) => {
+  try {
+    //getting req.user from middleware auth
+    const user = await User.findById(req.user.id).select("-password");
+    res.json(user);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("server error");
+  }
 });
 
 //Post route to post info and looged in
