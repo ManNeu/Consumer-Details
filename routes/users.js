@@ -1,6 +1,8 @@
+require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const { body, validationResult } = require("express-validator");
 
@@ -50,7 +52,26 @@ router.post(
 
       //saving the user
       await user.save();
-      res.send("saved in database");
+
+      //creating payload with user id
+      const payload = {
+        user: {
+          id: user.id,
+        },
+      };
+      //signing for jwt which return user id(payload)
+      jwt.sign(
+        payload,
+        process.env.jwtSecret,
+        {
+          //secs in 1 year
+          expiresIn: 31556926,
+        },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+        }
+      );
     } catch (err) {
       console.log(err.message);
       res.status(500).send("server error");
