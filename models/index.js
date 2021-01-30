@@ -1,8 +1,8 @@
-const Consumer = require("./consumer.js");
+// const Consumer = require("./consumer.js");
 
-module.exports = {
-  Consumer: Consumer,
-};
+// module.exports = {
+//   Consumer: Consumer,
+// };
 
 // const mongoose = require("mongoose");
 // const Schema = mongoose.Schema;
