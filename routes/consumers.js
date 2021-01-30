@@ -105,7 +105,7 @@ router.put("/:id", auth, async (req, res) => {
 
   try {
     let consumer = await Consumer.findById(req.params.id);
-    if (!consumer) return res.status(404).json({ msg: "" });
+    if (!consumer) return res.status(404).json({ msg: "consumer not found" });
 
     // making sure unauthorize access cannot me made
     if (consumer.user.toString() !== req.user.id) {
@@ -125,8 +125,21 @@ router.put("/:id", auth, async (req, res) => {
 
 //delete consumer details with delete and need id of the consumer we deleting
 
-router.delete("/:id", (req, res) => {
-  res.send("deleting the contact");
+router.delete("/:id", auth, async (req, res) => {
+  try {
+    let consumer = await Consumer.findById(req.params.id);
+    if (!consumer) return res.status(404).json({ msg: "consumer not found" });
+
+    // making sure unauthorize access cannot me made
+    if (consumer.user.toString() !== req.user.id) {
+      return res.status(401).json({ msg: "unauthorize" });
+    }
+    await Consumer.findByIdAndRemove(req.params.id);
+    res.json({ msg: "consumer details removed" });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("server error");
+  }
 });
 
 module.exports = router;
