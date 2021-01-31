@@ -1,7 +1,15 @@
 .App {
   text-align: center;
 }
-
+.navbar {
+  border: black;
+  background-color: blue;
+  border: solid 1px;
+}
+.bg-primary {
+  color: aliceblue;
+  /* color: rgba(0, 0, 255, 0.507); */
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
