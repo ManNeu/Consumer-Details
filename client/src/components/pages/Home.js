@@ -1,9 +1,12 @@
 import React from "react";
-
+import Consumers from "../consumers/Consumers";
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
+    <div className="grid2">
+      <div>Consumer form</div>
+      <div>
+        <Consumers />
+      </div>
     </div>
   );
 };
