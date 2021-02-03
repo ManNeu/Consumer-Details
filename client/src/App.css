@@ -10,6 +10,10 @@
   color: aliceblue;
   /* color: rgba(0, 0, 255, 0.507); */
 }
+.navLink {
+  color: aliceblue;
+  text-align: right;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
