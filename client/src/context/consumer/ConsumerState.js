@@ -42,6 +42,7 @@ const ConsumerState = (props) => {
     ],
 
     current: null,
+    filtered: null,
   };
   //dispatching object to the useReducer()
   const [state, dispatch] = useReducer(consumerReducer, initialState);
@@ -69,19 +70,27 @@ const ConsumerState = (props) => {
   };
   //filter consumers
 
+  const filterConsumers = (text) => {
+    dispatch({ type: FILTER_CONSUMERS, payload: text });
+  };
   //clear filter
-
+  const clearFilter = (consumer) => {
+    dispatch({ type: CLEAR_FILTER });
+  };
   //returning context provider such that we can wrap our apps with it
   return (
     <ConsumerContext.Provider
       value={{
         consumers: state.consumers,
         current: state.current,
+        filtered: state.filtered,
         addConsumer,
         deleteConsumer,
         setCurrent,
         clearCurrent,
         updateConsumer,
+        filterConsumers,
+        clearFilter,
       }}
     >
       {props.children}
