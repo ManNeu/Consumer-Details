@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const ConsumerItem = ({ consumer }) => {
   const {
@@ -59,8 +60,14 @@ const ConsumerItem = ({ consumer }) => {
           </li>
         )}
       </ul>
+      <p>
+        <button className="btn btn-dark btn-sm">Edit</button>
+        <button className="btn btn-danger btn-sm">Delete</button>
+      </p>
     </div>
   );
 };
-
+ConsumerItem.propTypes = {
+  consumer: PropTypes.object.isRequired,
+};
 export default ConsumerItem;
