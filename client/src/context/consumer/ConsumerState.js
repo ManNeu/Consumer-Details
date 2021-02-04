@@ -40,6 +40,8 @@ const ConsumerState = (props) => {
         travel_history: "none",
       },
     ],
+
+    current: null,
   };
   //dispatching object to the useReducer()
   const [state, dispatch] = useReducer(consumerReducer, initialState);
@@ -50,13 +52,17 @@ const ConsumerState = (props) => {
     dispatch({ type: ADD_CONSUMER, payload: consumer });
   };
   //Delete consumer
-  const deleteConsumer = (id) => {
-    dispatch({ type: DELETE_CONSUMER, payload: id });
+  const deleteConsumer = (_id) => {
+    dispatch({ type: DELETE_CONSUMER, payload: _id });
   };
   // set current consumer
-
+  const setCurrent = (consumer) => {
+    dispatch({ type: SET_CURRENT, payload: consumer });
+  };
   //clear current consumer
-
+  const clearCurrent = (consumer) => {
+    dispatch({ type: CLEAR_CURRENT });
+  };
   //Update Consumer
 
   //filter consumers
@@ -68,8 +74,11 @@ const ConsumerState = (props) => {
     <ConsumerContext.Provider
       value={{
         consumers: state.consumers,
+        current: state.current,
         addConsumer,
         deleteConsumer,
+        setCurrent,
+        clearCurrent,
       }}
     >
       {props.children}

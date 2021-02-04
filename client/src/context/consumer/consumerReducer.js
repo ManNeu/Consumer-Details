@@ -20,8 +20,18 @@ export default (state, action) => {
       return {
         ...state,
         consumers: state.consumers.filter(
-          (consumer) => consumer.id !== action.payload
+          (consumer) => consumer._id !== action.payload
         ),
+      };
+    case SET_CURRENT:
+      return {
+        ...state,
+        current: action.payload,
+      };
+    case CLEAR_CURRENT:
+      return {
+        ...state,
+        current: null,
       };
     default:
       return state;

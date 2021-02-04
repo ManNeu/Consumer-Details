@@ -1,7 +1,27 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import ConsumerContext from "../../context/consumer/consumerContext";
 const ConsumerForm = () => {
   const consumerContext = useContext(ConsumerContext);
+
+  const { addConsumer, current } = consumerContext;
+
+  useEffect(() => {
+    if (current != null) {
+      setConsumer(current);
+    } else {
+      setConsumer({
+        first_name: "",
+        last_name: "",
+        email: "",
+        phone: "",
+        address: "",
+        symptoms: "",
+        tavel_history: "",
+        type: "Staff",
+      });
+    }
+  });
+
   const [consumer, setConsumer] = useState({
     first_name: "",
     last_name: "",

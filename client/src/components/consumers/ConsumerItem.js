@@ -1,13 +1,15 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import ConsumerContext from "../../context/consumer/consumerContext";
+// import { set } from "mongoose";
+// import { CLEAR_CURRENT } from "../../context/types";
 
 const ConsumerItem = ({ consumer }) => {
   const consumerContext = useContext(ConsumerContext);
-  const { deleteConsumer } = consumerContext;
+  const { deleteConsumer, setCurrent, clearCurrent } = consumerContext;
 
   const {
-    id,
+    _id,
     first_name,
     last_name,
     email,
@@ -19,7 +21,8 @@ const ConsumerItem = ({ consumer }) => {
   } = consumer;
 
   const onDelete = () => {
-    deleteConsumer(id);
+    deleteConsumer(_id);
+    clearCurrent();
   };
 
   return (
@@ -70,7 +73,12 @@ const ConsumerItem = ({ consumer }) => {
         )}
       </ul>
       <p>
-        <button className="btn btn-dark btn-sm">Edit</button>
+        <button
+          className="btn btn-dark btn-sm"
+          onClick={() => setCurrent(consumer)}
+        >
+          Edit
+        </button>
         <button className="btn btn-danger btn-sm" onClick={onDelete}>
           Delete
         </button>
