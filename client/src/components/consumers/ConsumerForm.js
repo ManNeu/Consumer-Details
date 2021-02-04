@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-
+import React, { useState, useContext } from "react";
+import ConsumerContext from "../../context/consumer/consumerContext";
 const ConsumerForm = () => {
+  const consumerContext = useContext(ConsumerContext);
   const [consumer, setConsumer] = useState({
     first_name: "",
     last_name: "",
@@ -24,8 +25,23 @@ const ConsumerForm = () => {
   const onChange = (e) =>
     setConsumer({ ...consumer, [e.target.name]: e.target.value });
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    consumerContext.addConsumer(consumer);
+    setConsumer({
+      first_name: "",
+      last_name: "",
+      email: "",
+      phone: "",
+      address: "",
+      symptoms: "",
+      tavel_history: "",
+      type: "Staff",
+    });
+  };
+
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <h2 className="text-primary">Add Consumer</h2>
       <input
         type="text"
@@ -82,6 +98,7 @@ const ConsumerForm = () => {
         name="type"
         value="Staff"
         checked={type === "Staff"}
+        onChange={onChange}
       />{" "}
       Staff{" "}
       <input
@@ -89,6 +106,7 @@ const ConsumerForm = () => {
         name="type"
         value="Visitor"
         checked={type === "Visitor"}
+        onChange={onChange}
       />
       Visitor{" "}
       <div>

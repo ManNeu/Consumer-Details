@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import uuid from "uuid";
+import { v4 as uuid } from "uuid";
 import ConsumerContext from "./consumerContext";
 import consumerReducer from "./consumerReducer";
 import {
@@ -45,9 +45,14 @@ const ConsumerState = (props) => {
   const [state, dispatch] = useReducer(consumerReducer, initialState);
 
   //Add consumer
-
+  const addConsumer = (consumer) => {
+    consumer.id = uuid();
+    dispatch({ type: ADD_CONSUMER, payload: consumer });
+  };
   //Delete consumer
-
+  const deleteConsumer = (id) => {
+    dispatch({ type: DELETE_CONSUMER, payload: id });
+  };
   // set current consumer
 
   //clear current consumer
@@ -60,7 +65,13 @@ const ConsumerState = (props) => {
 
   //returning context provider such that we can wrap our apps with it
   return (
-    <ConsumerContext.Provider value={{ consumers: state.consumers }}>
+    <ConsumerContext.Provider
+      value={{
+        consumers: state.consumers,
+        addConsumer,
+        deleteConsumer,
+      }}
+    >
       {props.children}
     </ConsumerContext.Provider>
   );

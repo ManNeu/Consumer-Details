@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import ConsumerContext from "../../context/consumer/consumerContext";
 
 const ConsumerItem = ({ consumer }) => {
+  const consumerContext = useContext(ConsumerContext);
+  const { deleteConsumer } = consumerContext;
+
   const {
     id,
     first_name,
@@ -13,6 +17,11 @@ const ConsumerItem = ({ consumer }) => {
     travel_history,
     type,
   } = consumer;
+
+  const onDelete = () => {
+    deleteConsumer(id);
+  };
+
   return (
     <div className="card bg-light">
       <h3 className="text-primary text-left">
@@ -62,7 +71,9 @@ const ConsumerItem = ({ consumer }) => {
       </ul>
       <p>
         <button className="btn btn-dark btn-sm">Edit</button>
-        <button className="btn btn-danger btn-sm">Delete</button>
+        <button className="btn btn-danger btn-sm" onClick={onDelete}>
+          Delete
+        </button>
       </p>
     </div>
   );
