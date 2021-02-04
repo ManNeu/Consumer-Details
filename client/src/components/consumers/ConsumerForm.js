@@ -3,7 +3,12 @@ import ConsumerContext from "../../context/consumer/consumerContext";
 const ConsumerForm = () => {
   const consumerContext = useContext(ConsumerContext);
 
-  const { addConsumer, current } = consumerContext;
+  const {
+    addConsumer,
+    updateConsumer,
+    clearCurrent,
+    current,
+  } = consumerContext;
 
   useEffect(() => {
     if (current != null) {
@@ -20,7 +25,7 @@ const ConsumerForm = () => {
         type: "Staff",
       });
     }
-  });
+  }, [consumerContext, current]);
 
   const [consumer, setConsumer] = useState({
     first_name: "",
@@ -32,6 +37,7 @@ const ConsumerForm = () => {
     tavel_history: "",
     type: "Staff",
   });
+
   const {
     first_name,
     last_name,
@@ -47,22 +53,35 @@ const ConsumerForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    consumerContext.addConsumer(consumer);
-    setConsumer({
-      first_name: "",
-      last_name: "",
-      email: "",
-      phone: "",
-      address: "",
-      symptoms: "",
-      tavel_history: "",
-      type: "Staff",
-    });
+
+    if (current === null) {
+      addConsumer(consumer);
+    } else {
+      updateConsumer(consumer);
+    }
+    // setConsumer({
+    //   first_name: "",
+    //   last_name: "",
+    //   email: "",
+    //   phone: "",
+    //   address: "",
+    //   symptoms: "",
+    //   tavel_history: "",
+    //   type: "Staff",
+    // });
+
+    onClear();
+  };
+
+  const onClear = () => {
+    clearCurrent();
   };
 
   return (
     <form onSubmit={onSubmit}>
-      <h2 className="text-primary">Add Consumer</h2>
+      <h2 className="text-primary">
+        {current ? "Update Consumer" : "Add Consumer"}
+      </h2>
       <input
         type="text"
         placeholder="First Name"
@@ -132,10 +151,17 @@ const ConsumerForm = () => {
       <div>
         <input
           type="submit"
-          value="Add Consumer"
+          value={current ? "Update Consumer" : "Add Consumer"}
           className="btn btn-primary btn-block"
         />
       </div>
+      {current && (
+        <div>
+          <button className="btn btn-light btn-block" onClick={onClear}>
+            Clear
+          </button>
+        </div>
+      )}
     </form>
   );
 };

@@ -16,6 +16,13 @@ export default (state, action) => {
         ...state,
         consumers: [...state.consumers, action.payload],
       };
+    case UPDATE_CONSUMER:
+      return {
+        ...state,
+        consumers: state.consumers.map((consumer) =>
+          consumer.id === action.payload.id ? action.payload : consumer
+        ),
+      };
     case DELETE_CONSUMER:
       return {
         ...state,
@@ -33,6 +40,7 @@ export default (state, action) => {
         ...state,
         current: null,
       };
+
     default:
       return state;
   }

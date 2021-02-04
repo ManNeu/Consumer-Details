@@ -64,7 +64,9 @@ const ConsumerState = (props) => {
     dispatch({ type: CLEAR_CURRENT });
   };
   //Update Consumer
-
+  const updateConsumer = (consumer) => {
+    dispatch({ type: UPDATE_CONSUMER, payload: consumer });
+  };
   //filter consumers
 
   //clear filter
@@ -79,6 +81,7 @@ const ConsumerState = (props) => {
         deleteConsumer,
         setCurrent,
         clearCurrent,
+        updateConsumer,
       }}
     >
       {props.children}
