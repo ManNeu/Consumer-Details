@@ -37,7 +37,7 @@ const ConsumerSchema = new Schema({
   },
   type: {
     type: String,
-    default: "consumer",
+    default: "staff",
   },
   date: {
     type: Date,
