@@ -30,6 +30,11 @@ const Navbar = ({ title, icon }) => {
             Login
           </Link>
         </li>
+        <li>
+          <Link to="/consumerform" className="navLink">
+            Consumer Form
+          </Link>
+        </li>
       </ul>
     </div>
   );
