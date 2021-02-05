@@ -25,6 +25,11 @@ const Navbar = ({ title, icon }) => {
             Register
           </Link>
         </li>
+        <li>
+          <Link to="/login" className="navLink">
+            Login
+          </Link>
+        </li>
       </ul>
     </div>
   );
