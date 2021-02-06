@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AlertContext from "../../context/alert/alertContext";
 
 const Register = () => {
+  const alertContext = useContext(AlertContext);
+
+  const { setAlert } = alertContext;
+
   const [user, setUser] = useState({
     first_name: "",
     last_name: "",
@@ -15,7 +20,19 @@ const Register = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("Submit register");
+
+    // if (
+    //   first_name === "" ||
+    //   last_name === "" ||
+    //   email === "" ||
+    //   password === ""
+    // ) {
+    //   setAlert("All fields are required", "danger");
+    if (password !== password2) {
+      setAlert("Confirm password should be the same as password", "danger");
+    } else {
+      console.log("Submit register");
+    }
   };
 
   return (
@@ -31,6 +48,7 @@ const Register = () => {
             name="first_name"
             value={first_name}
             onChange={onChange}
+            required
           />
         </div>
         <div className="form-group">
@@ -40,11 +58,18 @@ const Register = () => {
             name="last_name"
             value={last_name}
             onChange={onChange}
+            required
           />
         </div>
         <div className="form-group">
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" value={email} onChange={onChange} />
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={onChange}
+            required
+          />
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
@@ -53,6 +78,8 @@ const Register = () => {
             name="password"
             value={password}
             onChange={onChange}
+            required
+            minLength="8"
           />
         </div>
         <div className="form-group">
@@ -62,6 +89,8 @@ const Register = () => {
             name="password2"
             value={password2}
             onChange={onChange}
+            required
+            minLength="8"
           />
         </div>
         <input
