@@ -1,10 +1,14 @@
 import React, { useState, useContext } from "react";
 import AlertContext from "../../context/alert/alertContext";
+import AuthContext from "../../context/auth/authContext";
 
 const Register = () => {
   const alertContext = useContext(AlertContext);
+  const authContext = useContext(AuthContext);
 
   const { setAlert } = alertContext;
+
+  const { register } = authContext;
 
   const [user, setUser] = useState({
     first_name: "",
@@ -31,7 +35,12 @@ const Register = () => {
     if (password !== password2) {
       setAlert("Confirm password should be the same as password", "danger");
     } else {
-      console.log("Submit register");
+      register({
+        first_name,
+        last_name,
+        email,
+        password,
+      });
     }
   };
 

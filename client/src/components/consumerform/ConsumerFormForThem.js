@@ -8,7 +8,7 @@ const ConsumerFormForThem = () => {
     phone: "",
     address: "",
     symptoms: "",
-    tavel_history: "",
+    travel_history: "",
     type: "Visitor",
   });
 
@@ -94,8 +94,8 @@ const ConsumerFormForThem = () => {
           <label htmlFor="travel_history">Travel History </label>
           <input
             type="text"
-            name="last_name"
-            value={last_name}
+            name="travel_history"
+            value={travel_history}
             onChange={onChange}
             placeholder="any places visited last 14 days"
           />
@@ -104,7 +104,7 @@ const ConsumerFormForThem = () => {
         <input
           type="radio"
           name="type"
-          value="Staff"
+          value="staff"
           checked={type === "Staff"}
           onChange={onChange}
         />{" "}
