@@ -12,6 +12,12 @@ import ConsumerFormForThem from "./components/consumerform/ConsumerFormForThem";
 import ConsumerState from "./context/consumer/ConsumerState";
 import AuthState from "./context/auth/AuthState";
 import AlertState from "./context/alert/AlertState";
+import setAuthToken from "./utils/setAuthToken";
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+
 const App = () => {
   return (
     <AuthState>
