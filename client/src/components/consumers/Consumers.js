@@ -17,13 +17,13 @@ const Consumers = () => {
       <TransitionGroup>
         {filtered !== null
           ? filtered.map((consumer) => (
-              <CSSTransition key={consumer.id} timeout={500} className="item">
-                <ConsumerItem key={consumer.id} consumer={consumer} />
+              <CSSTransition key={consumer._id} timeout={500} className="item">
+                <ConsumerItem consumer={consumer} />
               </CSSTransition>
             ))
           : consumers.map((consumer) => (
-              <CSSTransition key={consumer.id} timeout={500} className="item">
-                <ConsumerItem key={consumer.id} consumer={consumer} />
+              <CSSTransition key={consumer._id} timeout={500} className="item">
+                <ConsumerItem consumer={consumer} />
               </CSSTransition>
             ))}
       </TransitionGroup>

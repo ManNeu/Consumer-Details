@@ -6,6 +6,7 @@ import {
   UPDATE_CONSUMER,
   FILTER_CONSUMERS,
   CLEAR_FILTER,
+  CONSUMER_ERROR,
 } from "../types";
 
 // eslint-disable-next-line
@@ -58,6 +59,11 @@ export default (state, action) => {
       return {
         ...state,
         filtered: null,
+      };
+    case CONSUMER_ERROR:
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;

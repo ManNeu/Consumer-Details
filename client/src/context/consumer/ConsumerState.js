@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import { v4 as uuid } from "uuid";
+import axios from "axios";
 import ConsumerContext from "./consumerContext";
 import consumerReducer from "./consumerReducer";
 import {
@@ -10,47 +10,39 @@ import {
   UPDATE_CONSUMER,
   FILTER_CONSUMERS,
   CLEAR_FILTER,
+  CONSUMER_ERROR,
 } from "../types";
 
 //defining initial state
 
 const ConsumerState = (props) => {
   const initialState = {
-    consumers: [
-      {
-        _id: "601523cd9b53382f107de4d4",
-        type: "staff",
-        first_name: "Manish",
-        last_name: "Neupane",
-        email: "manis@m.com",
-        phone: "56565344",
-        address: "city",
-        symptoms: "none",
-        travel_history: "none",
-      },
-      {
-        _id: "601523cd9b53382f107de55",
-        type: "visitor",
-        first_name: "ast",
-        last_name: "Nee",
-        email: "matashs@m.com",
-        phone: "565653674",
-        address: "htona",
-        symptoms: "none",
-        travel_history: "none",
-      },
-    ],
+    consumers: [],
 
     current: null,
     filtered: null,
+    error: null,
   };
   //dispatching object to the useReducer()
   const [state, dispatch] = useReducer(consumerReducer, initialState);
 
   //Add consumer
-  const addConsumer = (consumer) => {
-    consumer.id = uuid();
-    dispatch({ type: ADD_CONSUMER, payload: consumer });
+  const addConsumer = async (consumer) => {
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+      },
+    };
+
+    try {
+      const res = await axios.post("/api/consumers", consumer, config);
+      dispatch({ type: ADD_CONSUMER, payload: res.data });
+    } catch (err) {
+      dispatch({
+        type: CONSUMER_ERROR,
+        payload: err.response.msg,
+      });
+    }
   };
   //Delete consumer
   const deleteConsumer = (_id) => {
@@ -84,6 +76,8 @@ const ConsumerState = (props) => {
         consumers: state.consumers,
         current: state.current,
         filtered: state.filtered,
+        error: state.error,
+
         addConsumer,
         deleteConsumer,
         setCurrent,
