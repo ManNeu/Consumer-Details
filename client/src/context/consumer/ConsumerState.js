@@ -3,12 +3,14 @@ import axios from "axios";
 import ConsumerContext from "./consumerContext";
 import consumerReducer from "./consumerReducer";
 import {
+  GET_CONSUMERS,
   ADD_CONSUMER,
   DELETE_CONSUMER,
   SET_CURRENT,
   CLEAR_CURRENT,
   UPDATE_CONSUMER,
   FILTER_CONSUMERS,
+  CLEAR_CONSUMERS,
   CLEAR_FILTER,
   CONSUMER_ERROR,
 } from "../types";
@@ -17,7 +19,7 @@ import {
 
 const ConsumerState = (props) => {
   const initialState = {
-    consumers: [],
+    consumers: null,
 
     current: null,
     filtered: null,
@@ -25,6 +27,22 @@ const ConsumerState = (props) => {
   };
   //dispatching object to the useReducer()
   const [state, dispatch] = useReducer(consumerReducer, initialState);
+
+  //Get Consumers
+  const getConsumers = async () => {
+    try {
+      const res = await axios.get("/api/consumers");
+      dispatch({
+        type: GET_CONSUMERS,
+        payload: res.data,
+      });
+    } catch (error) {
+      dispatch({
+        type: CONSUMER_ERROR,
+        payload: error.response.msg,
+      });
+    }
+  };
 
   //Add consumer
   const addConsumer = async (consumer) => {
@@ -37,10 +55,10 @@ const ConsumerState = (props) => {
     try {
       const res = await axios.post("/api/consumers", consumer, config);
       dispatch({ type: ADD_CONSUMER, payload: res.data });
-    } catch (err) {
+    } catch (error) {
       dispatch({
         type: CONSUMER_ERROR,
-        payload: err.response.msg,
+        payload: error.response.msg,
       });
     }
   };
@@ -84,6 +102,7 @@ const ConsumerState = (props) => {
         clearCurrent,
         updateConsumer,
         filterConsumers,
+        getConsumers,
         clearFilter,
       }}
     >

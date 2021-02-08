@@ -1,4 +1,5 @@
 import {
+  GET_CONSUMERS,
   ADD_CONSUMER,
   DELETE_CONSUMER,
   SET_CURRENT,
@@ -12,10 +13,17 @@ import {
 // eslint-disable-next-line
 export default (state, action) => {
   switch (action.type) {
+    case GET_CONSUMERS:
+      return {
+        ...state,
+        consumers: action.payload,
+        loading: false,
+      };
     case ADD_CONSUMER:
       return {
         ...state,
         consumers: [...state.consumers, action.payload],
+        loading: false,
       };
     case UPDATE_CONSUMER:
       return {
@@ -23,6 +31,7 @@ export default (state, action) => {
         consumers: state.consumers.map((consumer) =>
           consumer.id === action.payload.id ? action.payload : consumer
         ),
+        loading: false,
       };
     case DELETE_CONSUMER:
       return {
@@ -30,6 +39,7 @@ export default (state, action) => {
         consumers: state.consumers.filter(
           (consumer) => consumer._id !== action.payload
         ),
+        loading: false,
       };
     case SET_CURRENT:
       return {
