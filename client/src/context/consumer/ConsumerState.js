@@ -74,6 +74,28 @@ const ConsumerState = (props) => {
       });
     }
   };
+  //Update Consumer
+  const updateConsumer = async (consumer) => {
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+      },
+    };
+
+    try {
+      const res = await axios.put(
+        `/api/consumers/${consumer._id}`,
+        consumer,
+        config
+      );
+      dispatch({ type: UPDATE_CONSUMER, payload: res.data });
+    } catch (error) {
+      dispatch({
+        type: CONSUMER_ERROR,
+        payload: error.response.msg,
+      });
+    }
+  };
 
   // clear consumers
   const clearConsumers = (consumer) => {
@@ -88,10 +110,7 @@ const ConsumerState = (props) => {
   const clearCurrent = (consumer) => {
     dispatch({ type: CLEAR_CURRENT });
   };
-  //Update Consumer
-  const updateConsumer = (consumer) => {
-    dispatch({ type: UPDATE_CONSUMER, payload: consumer });
-  };
+
   //filter consumers
 
   const filterConsumers = (text) => {

@@ -30,7 +30,7 @@ export default (state, action) => {
       return {
         ...state,
         consumers: state.consumers.map((consumer) =>
-          consumer.id === action.payload.id ? action.payload : consumer
+          consumer._id === action.payload._id ? action.payload : consumer
         ),
         loading: false,
       };
