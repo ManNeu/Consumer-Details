@@ -1,8 +1,48 @@
-import React from "react";
+import React, { Fragment, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import AuthContext from "../../context/auth/authContext";
 
 const Navbar = ({ title, icon }) => {
+  const authContext = useContext(AuthContext);
+
+  const { isAuthenticated, logout, user } = authContext;
+
+  const onLogout = () => {
+    logout();
+  };
+
+  const authLinks = (
+    <Fragment>
+      <li>Hello {user && user.first_name + " " + user.last_name}</li>
+      <li>
+        <a onClick={onLogout} href="#!">
+          <i className="fas fa-sign-out-alt"></i>
+          <span className="hide-sm">logout</span>
+        </a>
+      </li>
+    </Fragment>
+  );
+  const guestLinks = (
+    <Fragment>
+      <li>
+        <Link to="/register" className="navLink">
+          Register
+        </Link>
+      </li>
+      <li>
+        <Link to="/login" className="navLink">
+          Login
+        </Link>
+      </li>
+      {/* <li>
+          <Link to="/consumerform" className="navLink">
+            Consumer Form
+          </Link>
+        </li> */}
+    </Fragment>
+  );
+
   return (
     <div className="navbar bg-primary">
       <h1>
@@ -10,7 +50,7 @@ const Navbar = ({ title, icon }) => {
         {title}
       </h1>
       <ul>
-        <li>
+        {/* <li>
           <Link to="/" className="navLink">
             Home
           </Link>
@@ -19,22 +59,8 @@ const Navbar = ({ title, icon }) => {
           <Link to="/about" className="navLink">
             About
           </Link>
-        </li>
-        <li>
-          <Link to="/register" className="navLink">
-            Register
-          </Link>
-        </li>
-        <li>
-          <Link to="/login" className="navLink">
-            Login
-          </Link>
-        </li>
-        <li>
-          <Link to="/consumerform" className="navLink">
-            Consumer Form
-          </Link>
-        </li>
+        </li> */}
+        {isAuthenticated ? authLinks : guestLinks}
       </ul>
     </div>
   );
