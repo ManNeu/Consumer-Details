@@ -63,9 +63,23 @@ const ConsumerState = (props) => {
     }
   };
   //Delete consumer
-  const deleteConsumer = (_id) => {
-    dispatch({ type: DELETE_CONSUMER, payload: _id });
+  const deleteConsumer = async (_id) => {
+    try {
+      await axios.delete(`/api/consumers/${_id}`);
+      dispatch({ type: DELETE_CONSUMER, payload: _id });
+    } catch (error) {
+      dispatch({
+        type: CONSUMER_ERROR,
+        payload: error.response.msg,
+      });
+    }
   };
+
+  // clear consumers
+  const clearConsumers = (consumer) => {
+    dispatch({ type: CLEAR_CONSUMERS });
+  };
+
   // set current consumer
   const setCurrent = (consumer) => {
     dispatch({ type: SET_CURRENT, payload: consumer });
@@ -104,6 +118,7 @@ const ConsumerState = (props) => {
         filterConsumers,
         getConsumers,
         clearFilter,
+        clearConsumers,
       }}
     >
       {props.children}

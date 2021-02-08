@@ -8,6 +8,7 @@ import {
   FILTER_CONSUMERS,
   CLEAR_FILTER,
   CONSUMER_ERROR,
+  CLEAR_CONSUMERS,
 } from "../types";
 
 // eslint-disable-next-line
@@ -22,7 +23,7 @@ export default (state, action) => {
     case ADD_CONSUMER:
       return {
         ...state,
-        consumers: [...state.consumers, action.payload],
+        consumers: [action.payload, ...state.consumers],
         loading: false,
       };
     case UPDATE_CONSUMER:
@@ -40,6 +41,14 @@ export default (state, action) => {
           (consumer) => consumer._id !== action.payload
         ),
         loading: false,
+      };
+    case CLEAR_CONSUMERS:
+      return {
+        ...state,
+        consumers: null,
+        filtered: null,
+        error: null,
+        current: null,
       };
     case SET_CURRENT:
       return {
