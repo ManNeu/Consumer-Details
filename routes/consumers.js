@@ -22,7 +22,7 @@ router.get("/", auth, async (req, res) => {
     console.error(error.message);
     res.status(500).send("server error");
   }
-  res.send("get info of consumer");
+  // res.send("get info of consumer");
 });
 
 //add consumer details with post
