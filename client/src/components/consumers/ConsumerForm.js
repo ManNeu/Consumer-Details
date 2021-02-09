@@ -79,7 +79,7 @@ const ConsumerForm = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <h2 className="text-primary">
+      <h2 className="textPrimary">
         {current ? "Update Consumer" : "Add Consumer"}
       </h2>
       <input

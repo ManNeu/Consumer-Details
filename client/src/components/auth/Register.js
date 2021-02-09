@@ -57,12 +57,12 @@ const Register = (props) => {
   };
 
   return (
-    <div className="form-container">
+    <div className="formContainer">
       <h1>
-        Account <span className="text-primary">Register</span>
+        Account <span className="textPrimary">Register</span>
       </h1>
       <form onSubmit={onSubmit}>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="first_name">First Name</label>
           <input
             type="text"
@@ -72,7 +72,7 @@ const Register = (props) => {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="last_name">Last Name</label>
           <input
             type="text"
@@ -82,7 +82,7 @@ const Register = (props) => {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -92,7 +92,7 @@ const Register = (props) => {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -103,7 +103,7 @@ const Register = (props) => {
             minLength="8"
           />
         </div>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="password2">Confirm Password</label>
           <input
             type="password"

@@ -16,7 +16,7 @@
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1.5rem;
 }
-.navLink {
+.NavLink {
   color: aliceblue;
   text-align: right;
 }
@@ -49,11 +49,11 @@
 
 /* Global Styles */
 :root {
-  --primary-color: #003699;
-  --dark-color: #333333;
+  --primary-color: #6592e6;
+  --dark-color: #380101;
   --light-color: #f4f4f4;
-  --danger-color: #dc3545;
-  --success-color: #28a745;
+  --danger-color: #db1c2f;
+  --success-color: #1ebd43;
 }
 
 * {
@@ -70,14 +70,14 @@ body {
   color: #333;
 }
 
-a {
+/* a {
   color: var(--primary-color);
   text-decoration: none;
 }
 
 a:hover {
   color: #666;
-}
+} */
 
 ul {
   list-style: none;
@@ -95,7 +95,7 @@ img {
   padding: 0 2rem;
 }
 
-/* Text Styles*/
+/* Text Styles
 .x-large {
   font-size: 4rem;
   line-height: 1.2;
@@ -106,55 +106,55 @@ img {
   font-size: 3rem;
   line-height: 1.2;
   margin-bottom: 1rem;
-}
+} */
 
-.lead {
+/* .lead {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-}
+} */
 
-.text-center {
+/* .text-center {
   text-align: center;
-}
+} */
 
-.text-primary {
+.textPrimary {
   color: var(--primary-color);
 }
 
-.text-dark {
+/* .text-dark {
   color: var(--dark-color);
-}
+} */
 
-.text-center {
+/* .text-center {
   text-align: center;
 }
 
 .text-right {
   text-align: right;
-}
+} */
 
-.text-left {
+.textLeft {
   text-align: left;
 }
 
 /* Cards */
-.card {
+.Card {
   padding: 1rem;
   border: #ccc 1px dotted;
   margin: 0.7rem 0;
 }
 
 /* List */
-.list {
+.List {
   margin: 0.5rem 0;
 }
 
-.list li {
+.List li {
   padding-bottom: 0.3rem;
 }
 
 /* Padding */
-.p {
+/* .p {
   padding: 0.5rem;
 }
 .p-1 {
@@ -177,10 +177,10 @@ img {
 }
 .py-3 {
   padding: 3rem 0;
-}
+} */
 
 /* Margin */
-.m {
+/* .m {
   margin: 0.5rem;
 }
 .m-1 {
@@ -203,7 +203,7 @@ img {
 }
 .my-3 {
   margin: 3rem 0;
-}
+} */
 
 /* Grid */
 .grid-2 {
@@ -212,7 +212,7 @@ img {
   grid-gap: 2rem;
 }
 
-.grid-3 {
+/* .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
@@ -228,7 +228,7 @@ img {
   display: grid;
   grid-template-columns: 2fr 3fr;
   grid-gap: 2rem;
-}
+} */
 
 .btn {
   display: inline-block;
@@ -243,11 +243,11 @@ img {
   outline: none;
 }
 
-.btn-link {
+/* .btn-link {
   background: none;
   padding: 0;
   margin: 0;
-}
+} */
 
 .btn-block {
   display: block;
@@ -295,8 +295,8 @@ img {
 }
 
 .btn-dark,
-.bg-dark,
-.badge-dark,
+/* .bg-dark,
+.badge-dark, */
 .alert-dark {
   background: var(--dark-color);
   color: #fff;
@@ -310,16 +310,14 @@ img {
   color: #fff;
 }
 
-.btn-success,
-.bg-success,
+/* .btn-success,
+.bg-success, */
 .badge-success,
 .alert-success {
   background: var(--success-color);
   color: #fff;
 }
 
-.btn-white,
-.bg-white,
 .badge-white,
 .alert-white {
   background: #fff;
@@ -336,20 +334,20 @@ img {
   border: #ccc solid 1px;
 }
 
-.round-img {
+/* .round-img {
   border-radius: 50%;
-}
+} */
 
 /* Forms */
 input {
   margin: 1.2rem 0;
 }
 
-.form-text {
+/* .form-text {
   display: block;
   margin-top: 0.3rem;
   color: #888;
-}
+} */
 
 input[type="text"],
 input[type="email"],
@@ -369,28 +367,28 @@ button {
   font: inherit;
 }
 
-.form-group {
+.formGroup {
   margin: 1.2rem 0;
 }
 
-.form-group input {
+.formGroup input {
   margin: 0.2rem 0;
 }
 
-.form-container {
+.formContainer {
   max-width: 500px;
   margin: 2rem auto;
   overflow: hidden;
   padding: 0 2rem;
 }
 
-.form-container h1,
+.formContainer h1,
 h2,
 h3 {
   text-align: center;
 }
 
-table th,
+/* table th,
 table td {
   padding: 1rem;
   text-align: left;
@@ -398,7 +396,7 @@ table td {
 
 table th {
   background: var(--light-color);
-}
+} */
 
 /* Navbar */
 .navbar {
@@ -426,12 +424,12 @@ table th {
 .navbar a:hover {
   color: var(--light-color);
 }
-
+/* 
 .navbar .welcome span {
   margin-right: 0.6rem;
-}
+} */
 
-/* Animation (Add After) */
+/* Animation (Add After)
 .item-enter {
   opacity: 0;
 }
@@ -445,7 +443,7 @@ table th {
 .item-exit-active {
   opacity: 0;
   transition: opacity 1000ms ease-in;
-}
+} */
 
 /* Mobile Styles */
 @media (max-width: 700px) {
@@ -464,13 +462,13 @@ table th {
     font-size: 3rem;
   }
 
-  .large {
+  /* .large {
     font-size: 2rem;
-  }
+  } */
 
-  .lead {
+  /* .lead {
     font-size: 1rem;
-  }
+  } */
 
   /* Navbar */
   .navbar {

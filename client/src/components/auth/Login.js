@@ -44,12 +44,12 @@ const Login = (props) => {
   };
 
   return (
-    <div className="form-container">
+    <div className="formContainer">
       <h1>
-        Login <span className="text-primary">User</span>
+        Login <span className="textPrimary">User</span>
       </h1>
       <form onSubmit={onSubmit}>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -59,7 +59,7 @@ const Login = (props) => {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="password">Password</label>
           <input
             type="password"

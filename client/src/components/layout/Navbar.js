@@ -31,12 +31,12 @@ const Navbar = ({ title, icon }) => {
   const guestLinks = (
     <Fragment>
       <li>
-        <Link to="/register" className="navLink">
+        <Link to="/register" className="Navlink">
           Register
         </Link>
       </li>
       <li>
-        <Link to="/login" className="navLink">
+        <Link to="/login" className="Navlink">
           Login
         </Link>
       </li>
@@ -75,7 +75,7 @@ Navbar.propTypes = {
   icon: PropTypes.string,
 };
 Navbar.defaultProps = {
-  title: "Consumer Details",
-  icon: "fas fa-id-card-alt",
+  title: " Consumer Details",
+  icon: "fas fa-info-circle",
 };
 export default Navbar;

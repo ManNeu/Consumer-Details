@@ -31,12 +31,12 @@ const ConsumerFormForThem = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="formContainer">
       <h1>
-        Consumer <span className="text-primary">Details Form</span>
+        Consumer <span className="textPrimary">Details Form</span>
       </h1>
       <form onSubmit={onSubmit}>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="first_name">First Name</label>
           <input
             type="text"
@@ -45,7 +45,7 @@ const ConsumerFormForThem = () => {
             onChange={onChange}
           />
         </div>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="last_name">Last Name</label>
           <input
             type="text"
@@ -54,11 +54,11 @@ const ConsumerFormForThem = () => {
             onChange={onChange}
           />
         </div>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="email">Email</label>
           <input type="email" name="email" value={email} onChange={onChange} />
         </div>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="last_name">Last Name</label>
           <input
             type="text"
@@ -67,11 +67,11 @@ const ConsumerFormForThem = () => {
             onChange={onChange}
           />
         </div>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="phone">Phone</label>
           <input type="text" name="phone" value={phone} onChange={onChange} />
         </div>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="address">Address</label>
           <input
             type="text"
@@ -80,7 +80,7 @@ const ConsumerFormForThem = () => {
             onChange={onChange}
           />
         </div>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="symptoms">Disease Symptoms</label>
           <input
             type="text"
@@ -90,7 +90,7 @@ const ConsumerFormForThem = () => {
             onChange={onChange}
           />
         </div>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="travel_history">Travel History </label>
           <input
             type="text"

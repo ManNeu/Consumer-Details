@@ -27,13 +27,13 @@ const ConsumerItem = ({ consumer }) => {
   };
 
   return (
-    <div className="card bg-light">
+    <div className="Card bg-light">
       <h3 className="text-primary text-left">
         Name: {first_name + " " + last_name}{" "}
         <span
           style={{ float: "right" }}
           className={
-            "badge " + (type === "staff" ? "badge-success" : "badge-primary")
+            "badge " + (type === "Staff" ? "badge-success" : "badge-light")
           }
         >
           {" "}
