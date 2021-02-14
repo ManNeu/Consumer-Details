@@ -1,65 +1,4 @@
-.App {
-  text-align: center;
-}
-.jumbotron {
-  background-image: url(https://tn.affinitysoccer.com/1011/css/blue/background.jpg);
-  background-repeat: no-repeat repeat;
-  padding-top: 50px;
-  font-weight: bold;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  border-radius: 50px;
-  position: fixed;
-  min-width: 100%;
-  min-height: 100%;
-  background-size: cover;
-  background-position: center;
-}
-.navbar {
-  border: black;
-  background-color: blue;
-  border: solid 1px;
-}
-.bg-primary {
-  color: aliceblue;
-  /* color: rgba(0, 0, 255, 0.507); */
-}
-
-.grid2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1.5rem;
-}
-.NavLink {
-  color: aliceblue;
-  text-align: right;
-}
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 /* Global Styles */
 :root {
@@ -132,11 +71,13 @@ img {
 }
 
 /* Grid */
-.grid-2 {
+.grid2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
 }
+
+/* button */
 
 .btn {
   display: inline-block;
@@ -162,6 +103,8 @@ img {
   margin-right: 0.2rem;
 }
 
+/* badge */
+
 .badge {
   font-size: 0.8rem;
   padding: 0.2rem 0.7rem;
@@ -171,6 +114,7 @@ img {
   color: #333;
   border-radius: 5px;
 }
+/* alert */
 
 .alert {
   padding: 0.7rem;
@@ -285,12 +229,12 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.7rem 2rem;
+  padding: 0.6rem 1.8rem;
   z-index: 1;
   width: 100%;
   border-bottom: solid 1px var(--primary-color);
   opacity: 0.9;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 .navbar ul {
@@ -299,8 +243,8 @@ h3 {
 
 .navbar a {
   color: #fff;
-  padding: 0.45rem;
-  margin: 0 0.25rem;
+  padding: 0.4rem;
+  margin: 0 0.23rem;
 }
 
 .navbar a:hover {

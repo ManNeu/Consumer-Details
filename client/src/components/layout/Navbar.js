@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import AuthContext from "../../context/auth/authContext";
 import ConsumerContext from "../../context/consumer/consumerContext";
-import blueWaterMark from "../images/blueWaterMarks.jpg";
+// import blueWaterMark from "../images/blueWaterMarks.jpg";
 
 const Navbar = ({ title, icon }) => {
   const authContext = useContext(AuthContext);
@@ -21,7 +21,12 @@ const Navbar = ({ title, icon }) => {
   const authLinks = (
     <Fragment>
       {/* <li>Hello {user && user.first_name + " " + user.last_name}</li> */}
-      <li>Welcome to {user && user.store_name + "\n" + user.store_location}</li>
+
+      <h3>
+        {" "}
+        Welcome to: {user && user.store_name + " @ " + user.store_location}{" "}
+      </h3>
+
       {/* <br /> */}
 
       {/* <li> {user && user.store_location}</li> */}
@@ -54,8 +59,8 @@ const Navbar = ({ title, icon }) => {
   );
 
   return (
+    // <div style={{ backgroundImage: "url(" + blueWaterMark + ")" }}>
     <div className="navbar bg-primary">
-      {/* <div style={{ backgroundImage: "url(" + blueWaterMark + ")" }}> */}
       <h1>
         <i className={icon} />
         {title}

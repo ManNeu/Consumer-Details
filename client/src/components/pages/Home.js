@@ -4,6 +4,7 @@ import ConsumerForm from "../consumers/ConsumerForm";
 import ConsumerFilter from "../consumers/ConsumerFilter";
 import AuthContext from "../../context/auth/authContext";
 import landingImage from "../images/landingPage.jpg";
+import blueWaterMark from "../images/blueWaterMarks.jpg";
 
 const Home = () => {
   const authContext = useContext(AuthContext);
@@ -14,11 +15,14 @@ const Home = () => {
   }, []);
 
   return (
-    <div style={{ backgroundImage: "url(" + landingImage + ")" }}>
-      <div className="grid2">
-        <div>
+    <div className="grid2">
+      <div>
+        <div style={{ backgroundImage: "url(" + landingImage + ")" }}>
           <ConsumerForm />
         </div>
+      </div>
+
+      <div style={{ backgroundImage: "url(" + blueWaterMark + ")" }}>
         <div>
           <ConsumerFilter />
           <Consumers />
