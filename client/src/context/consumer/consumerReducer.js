@@ -74,7 +74,8 @@ export default (state, action) => {
             consumer.email.match(regex) ||
             consumer.type.match(regex) ||
             consumer.date.match(regex) ||
-            (consumer.type + " " + consumer.date).match(regex)
+            (consumer.type + " " + consumer.date).match(regex) ||
+            (consumer.date + " " + consumer.type).match(regex)
           );
         }),
       };
