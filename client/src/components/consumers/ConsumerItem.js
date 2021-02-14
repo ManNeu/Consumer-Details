@@ -2,9 +2,6 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import ConsumerContext from "../../context/consumer/consumerContext";
 
-// import { set } from "mongoose";
-// import { CLEAR_CURRENT } from "../../context/types";
-
 const ConsumerItem = ({ consumer }) => {
   const consumerContext = useContext(ConsumerContext);
   const { deleteConsumer, setCurrent, clearCurrent } = consumerContext;

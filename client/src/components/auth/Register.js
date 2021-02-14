@@ -2,8 +2,6 @@ import React, { useState, useContext, useEffect } from "react";
 import AlertContext from "../../context/alert/alertContext";
 import AuthContext from "../../context/auth/authContext";
 import backgroundImage from "../images/backgroundImage.jpg";
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import { Jumbotron } from "react-bootstrap";
 
 const Register = (props) => {
   const alertContext = useContext(AlertContext);
@@ -28,36 +26,23 @@ const Register = (props) => {
   const [user, setUser] = useState({
     store_name: "",
     store_location: "",
-    // first_name: "",
-    // last_name: "",
     email: "",
     password: "",
     password2: "",
   });
 
-  // const { first_name, last_name, email, password, password2 } = user;
   const { store_name, store_location, email, password, password2 } = user;
 
   const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
     e.preventDefault();
-
-    // if (
-    //   first_name === "" ||
-    //   last_name === "" ||
-    //   email === "" ||
-    //   password === ""
-    // ) {
-    //   setAlert("All fields are required", "danger");
     if (password !== password2) {
       setAlert("Confirm password should be the same as password", "danger");
     } else {
       register({
         store_name,
         store_location,
-        // first_name,
-        // last_name,
         email,
         password,
       });
@@ -92,26 +77,7 @@ const Register = (props) => {
               required
             />
           </div>
-          {/* <div className="formGroup">
-          <label htmlFor="first_name">First Name</label>
-          <input
-            type="text"
-            name="first_name"
-            value={first_name}
-            onChange={onChange}
-            required
-          />
-        </div> */}
-          {/* <div className="formGroup">
-          <label htmlFor="last_name">Last Name</label>
-          <input
-            type="text"
-            name="last_name"
-            value={last_name}
-            onChange={onChange}
-            required
-          />
-        </div> */}
+
           <div className="formGroup">
             <label htmlFor="email">Email</label>
             <input

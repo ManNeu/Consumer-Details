@@ -8,18 +8,6 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// app.get("/", (req, res) => res.json({ msg: "checking server" }));
-// const MONGODB_URI = ""
-// const mongoURI = "mongodb+srv://trilogy:trilogy@cluster0.u8m9s.mongodb.net/mernlogin?retryWrites=true&w=majority";
-
-// // Connect to MongoDB
-// mongoose.connect( MONGODB_URI || mongoURI, {
-//   useNewUrlParser: true,
-//   useFindAndModify: false
-// })
-// .then(() => console.log("MongoDB successfully connected"))
-// .catch(err => console.log(err));
-
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/consumers";
 
 mongoose
@@ -36,7 +24,6 @@ mongoose
 app.use("/api/users", require("./routes/users"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/consumers", require("./routes/consumers"));
-// app.use("/api/consumersform", require("./routes/consumersFormForThem"));
 
 //serving static in production build
 if (process.env.NODE_ENV === "production") {

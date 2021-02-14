@@ -59,16 +59,6 @@ const ConsumerForm = () => {
     } else {
       updateConsumer(consumer);
     }
-    // setConsumer({
-    //   first_name: "",
-    //   last_name: "",
-    //   email: "",
-    //   phone: "",
-    //   address: "",
-    //   symptoms: "",
-    //   tavel_history: "",
-    //   type: "Staff",
-    // });
 
     onClear();
   };

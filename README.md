@@ -41,7 +41,6 @@ As business person and keeping in mind what's going in the world because of COVI
 # Screenshots of the apps and database
 
 ![Screenshot of apps register page](client/src/components/images/RegisterPage.png)
-components/images/LOGIN_WITH_FILTER.png)
 ![Screenshot of apps login page](client/src/components/images/LoginPage.png)
 ![Screenshot of apps homepage](client/src/components/images/homePage.png)
 ![Screenshot of apps login with filter](client/src/components/images/LOGIN_WITH_FILTER.png)

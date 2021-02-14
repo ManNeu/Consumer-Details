@@ -23,7 +23,7 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
-//Post route to post info and looged in
+//Post route to post info and logged in
 router.post(
   "/",
   //express validation as second parameter

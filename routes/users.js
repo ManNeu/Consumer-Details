@@ -16,8 +16,6 @@ router.post(
 
   body("store_name", "store_name is required").not().isEmpty(),
   body("store_location", "store_location is required").not().isEmpty(),
-  // body("first_name", "first_name is required").not().isEmpty(),
-  // body("last_name", "last_name is required").not().isEmpty(),
   body("email", "please enter a valid email").isEmail(),
   body("password", "Password must be minimum 6 character ").isLength({
     min: 8,
@@ -29,7 +27,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
     //deconstructing req.body
-    // const { first_name, last_name, email, password } = req.body;
+
     const { store_name, store_location, email, password } = req.body;
 
     //finding user by email and checking if it already exist
@@ -41,13 +39,6 @@ router.post(
           msg: "User already exist",
         });
       }
-      //if user doesnot exist we will create new user using User model
-      // user = new User({
-      //   first_name,
-      //   last_name,
-      //   email,
-      //   password,
-      // });
 
       user = new User({
         store_name,
