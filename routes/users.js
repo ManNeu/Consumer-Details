@@ -13,12 +13,13 @@ const User = require("../models/User");
 // this route is created for the registeration process
 router.post(
   "/",
-
+  // body("name", "name is required").not().isEmpty(),
+  // body("store_name", "store_name is required").not().isEmpty(),
   body("first_name", "first_name is required").not().isEmpty(),
   body("last_name", "last_name is required").not().isEmpty(),
   body("email", "please enter a valid email").isEmail(),
   body("password", "Password must be minimum 6 character ").isLength({
-    min: 6,
+    min: 8,
   }),
 
   async (req, res) => {
@@ -28,6 +29,7 @@ router.post(
     }
     //deconstructing req.body
     const { first_name, last_name, email, password } = req.body;
+    // const { name, store_name, email, password } = req.body;
 
     //finding user by email and checking if it already exist
     try {
@@ -45,6 +47,14 @@ router.post(
         email,
         password,
       });
+
+      // user = new User({
+      //   name,
+      //   store_name,
+      //   email,
+      //   password,
+      // });
+
       //we will hash the password before saving to database with bcrypt
 
       const salt = await bcrypt.genSalt(10);
@@ -59,6 +69,7 @@ router.post(
           id: user.id,
         },
       };
+
       //signing for jwt which return user id(payload)
       jwt.sign(
         payload,

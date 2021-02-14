@@ -66,11 +66,15 @@ export default (state, action) => {
         filtered: state.consumers.filter((consumer) => {
           //creating regular expression and using gi to match irrespective of the case sensetive
           const regex = new RegExp(`${action.payload}`, "gi");
+          // ("\\bcow\\b");
           //will return anything that matches the text passed in
           return (
-            consumer.first_name.match(regex) ||
-            consumer.last_name.match(regex) ||
-            consumer.email.match(regex)
+            (consumer.first_name + " " + consumer.last_name).match(regex) ||
+            // consumer.last_name.match(regex) ||
+            consumer.email.match(regex) ||
+            consumer.type.match(regex) ||
+            consumer.date.match(regex) ||
+            (consumer.type + " " + consumer.date).match(regex)
           );
         }),
       };

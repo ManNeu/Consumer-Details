@@ -3,6 +3,16 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const UserSchema = new Schema({
+  // alternative
+  //  name: {
+  //   type: String,
+  //   required: true,
+  // },
+
+  //business_name:{
+  //   type: String,
+  //   required: true,
+  // }
   first_name: {
     type: String,
     required: true,

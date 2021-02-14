@@ -8,7 +8,6 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Alerts from "./components/layout/Alerts";
 import PrivateRoute from "./components/routing/PrivateRoute";
-import ConsumerFormForThem from "./components/consumerform/ConsumerFormForThem";
 
 import ConsumerState from "./context/consumer/ConsumerState";
 import AuthState from "./context/auth/AuthState";
@@ -34,11 +33,6 @@ const App = () => {
                   <Route exact path="/about" component={About} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />
-                  <Route
-                    exact
-                    path="/consumerform"
-                    component={ConsumerFormForThem}
-                  />
                 </Switch>
               </div>
             </Fragment>

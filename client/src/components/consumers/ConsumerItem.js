@@ -28,7 +28,7 @@ const ConsumerItem = ({ consumer }) => {
 
   return (
     <div className="Card bg-light">
-      <h3 className="text-primary text-left">
+      <h3 className="textPrimary textLeft">
         Name: {first_name + " " + last_name}{" "}
         <span
           style={{ float: "right" }}

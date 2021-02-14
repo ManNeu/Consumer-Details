@@ -24,7 +24,7 @@ const ConsumerFilter = () => {
       <input
         ref={text}
         type="text"
-        placeholder="enter your filter keywords here..."
+        placeholder="enter keywords to filter consumers..."
         onChange={onChange}
       />
     </form>
