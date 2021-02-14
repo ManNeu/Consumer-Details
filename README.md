@@ -10,35 +10,41 @@ The application consists of 1 main file, server.js. The application has both fro
 
 To use this application, git clone this repository. Once you have git cloned, run npm install on both client and main path to install the dependencies for the application which are:
 
-express
-config
-bcryptjs
-express-validator
-jsonwebtoken
-mongoose
-concurrently
-nodemon
-
-axios
-bootstrap
-react
-react-dom
-react-router-dom
-react-scripts
-react-tranhsition-group
-uuid
+- express
+- config
+- bcryptjs
+- express-validator
+- jsonwebtoken
+- mongoose
+- concurrently
+- nodemon
+- axios
+- bootstrap
+- react
+- react-dom
+- react-router-dom
+- react-scripts
+- react-tranhsition-group
+- uuid
 
 The application can be invoked with npm run dev which will run both front and back end concurrently.
 
 # User Story
 
-As business person and keeping in mind what's going in the world bacause of COVID-19, I want something to keep the details of information of all the customers and staffs such that those information can be used during COVID outbreak in the region.
+As business person and keeping in mind what's going in the world because of COVID-19, I want something to keep the details of information of all the customers and staffs such that those information can be used during COVID outbreak in the region.
 
 # Link to the application
 
-()
+- Heroku Deployed link: (https://project-03-2021.herokuapp.com/)
+- Github Repository Link: (https://github.com/ManNeu/Consumer-Details)
 
 # Screenshots of the apps and database
+
+![Screenshot of apps register page](client/src/components/images/RegisterPage.png)
+components/images/LOGIN_WITH_FILTER.png)
+![Screenshot of apps login page](client/src/components/images/LoginPage.png)
+![Screenshot of apps homepage](client/src/components/images/homePage.png)
+![Screenshot of apps login with filter](client/src/
 
 # Built With
 
