@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import AuthContext from "../../context/auth/authContext";
 import AlertContext from "../../context/alert/alertContext";
+import greyBackground from "../images/greyBackground.jpg";
 
 const Login = (props) => {
   const alertContext = useContext(AlertContext);
@@ -44,38 +45,40 @@ const Login = (props) => {
   };
 
   return (
-    <div className="formContainer">
-      <h1>
-        Login <span className="textPrimary">User</span>
-      </h1>
-      <form onSubmit={onSubmit}>
-        <div className="formGroup">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={onChange}
-            required
-          />
-        </div>
-        <div className="formGroup">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={onChange}
-            required
-          />
-        </div>
+    <div style={{ backgroundImage: "url(" + greyBackground + ")" }}>
+      <div className="formContainer">
+        <h1>
+          Login <span className="textPrimary">User</span>
+        </h1>
+        <form onSubmit={onSubmit}>
+          <div className="formGroup">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={onChange}
+              required
+            />
+          </div>
+          <div className="formGroup">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={onChange}
+              required
+            />
+          </div>
 
-        <input
-          type="submit"
-          value="Login"
-          className="btn btn-primary btn-block"
-        />
-      </form>
+          <input
+            type="submit"
+            value="Login"
+            className="btn btn-primary btn-block"
+          />
+        </form>
+      </div>
     </div>
   );
 };

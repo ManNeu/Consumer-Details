@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import AuthContext from "../../context/auth/authContext";
 import ConsumerContext from "../../context/consumer/consumerContext";
+import blueWaterMark from "../images/blueWaterMarks.jpg";
 
 const Navbar = ({ title, icon }) => {
   const authContext = useContext(AuthContext);
@@ -54,6 +55,7 @@ const Navbar = ({ title, icon }) => {
 
   return (
     <div className="navbar bg-primary">
+      {/* <div style={{ backgroundImage: "url(" + blueWaterMark + ")" }}> */}
       <h1>
         <i className={icon} />
         {title}
@@ -72,6 +74,7 @@ const Navbar = ({ title, icon }) => {
         {isAuthenticated ? authLinks : guestLinks}
       </ul>
     </div>
+    // </div>
   );
 };
 Navbar.propTypes = {
