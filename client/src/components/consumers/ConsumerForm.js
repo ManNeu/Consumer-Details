@@ -21,7 +21,7 @@ const ConsumerForm = () => {
         phone: "",
         address: "",
         symptoms: "",
-        tavel_history: "",
+        travel_history: "",
         type: "Staff",
       });
     }
@@ -34,7 +34,7 @@ const ConsumerForm = () => {
     phone: "",
     address: "",
     symptoms: "",
-    tavel_history: "",
+    travel_history: "",
     type: "Staff",
   });
 
@@ -88,6 +88,7 @@ const ConsumerForm = () => {
         name="first_name"
         value={first_name}
         onChange={onChange}
+        required
       />
       <input
         type="text"
@@ -95,13 +96,15 @@ const ConsumerForm = () => {
         name="last_name"
         value={last_name}
         onChange={onChange}
+        required
       />
       <input
-        type="text"
+        type="email"
         placeholder="Email"
         name="email"
         value={email}
         onChange={onChange}
+        required
       />
       <input
         type="text"
@@ -109,6 +112,8 @@ const ConsumerForm = () => {
         name="phone"
         value={phone}
         onChange={onChange}
+        required
+        maxLength="10"
       />
       <input
         type="text"
@@ -116,6 +121,7 @@ const ConsumerForm = () => {
         name="address"
         value={address}
         onChange={onChange}
+        required
       />
       <input
         type="text"
@@ -123,6 +129,7 @@ const ConsumerForm = () => {
         name="symptoms"
         value={symptoms}
         onChange={onChange}
+        required
       />
       <input
         type="text"
@@ -130,6 +137,7 @@ const ConsumerForm = () => {
         name="travel_history"
         value={travel_history}
         onChange={onChange}
+        required
       />
       <h6>Person Type</h6>
       <input

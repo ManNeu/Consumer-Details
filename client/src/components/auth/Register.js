@@ -23,14 +23,17 @@ const Register = (props) => {
   }, [error, isAuthenticated, props.history]);
 
   const [user, setUser] = useState({
-    first_name: "",
-    last_name: "",
+    store_name: "",
+    store_location: "",
+    // first_name: "",
+    // last_name: "",
     email: "",
     password: "",
     password2: "",
   });
 
-  const { first_name, last_name, email, password, password2 } = user;
+  // const { first_name, last_name, email, password, password2 } = user;
+  const { store_name, store_location, email, password, password2 } = user;
 
   const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
 
@@ -48,8 +51,10 @@ const Register = (props) => {
       setAlert("Confirm password should be the same as password", "danger");
     } else {
       register({
-        first_name,
-        last_name,
+        store_name,
+        store_location,
+        // first_name,
+        // last_name,
         email,
         password,
       });
@@ -63,6 +68,26 @@ const Register = (props) => {
       </h1>
       <form onSubmit={onSubmit}>
         <div className="formGroup">
+          <label htmlFor="store_name">Store Name</label>
+          <input
+            type="text"
+            name="store_name"
+            value={store_name}
+            onChange={onChange}
+            required
+          />
+        </div>
+        <div className="formGroup">
+          <label htmlFor="store_location">Store location</label>
+          <input
+            type="text"
+            name="store_location"
+            value={store_location}
+            onChange={onChange}
+            required
+          />
+        </div>
+        {/* <div className="formGroup">
           <label htmlFor="first_name">First Name</label>
           <input
             type="text"
@@ -71,8 +96,8 @@ const Register = (props) => {
             onChange={onChange}
             required
           />
-        </div>
-        <div className="formGroup">
+        </div> */}
+        {/* <div className="formGroup">
           <label htmlFor="last_name">Last Name</label>
           <input
             type="text"
@@ -81,7 +106,7 @@ const Register = (props) => {
             onChange={onChange}
             required
           />
-        </div>
+        </div> */}
         <div className="formGroup">
           <label htmlFor="email">Email</label>
           <input

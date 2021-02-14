@@ -16,7 +16,7 @@ const Consumers = () => {
   }, []);
 
   if (consumers !== null && consumers.length === 0 && !loading) {
-    return <h3>Please include a consumer</h3>;
+    return <h3>Please enter consumer/staff details</h3>;
   }
   return (
     <Fragment>

@@ -4,23 +4,23 @@ const Schema = mongoose.Schema;
 // Create Schema
 const UserSchema = new Schema({
   // alternative
-  //  name: {
+  store_name: {
+    type: String,
+    required: true,
+  },
+
+  store_location: {
+    type: String,
+    required: true,
+  },
+  // first_name: {
   //   type: String,
   //   required: true,
   // },
-
-  //business_name:{
+  // last_name: {
   //   type: String,
   //   required: true,
-  // }
-  first_name: {
-    type: String,
-    required: true,
-  },
-  last_name: {
-    type: String,
-    required: true,
-  },
+  // },
   email: {
     type: String,
     required: true,

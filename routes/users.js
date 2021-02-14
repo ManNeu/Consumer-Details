@@ -13,10 +13,11 @@ const User = require("../models/User");
 // this route is created for the registeration process
 router.post(
   "/",
-  // body("name", "name is required").not().isEmpty(),
-  // body("store_name", "store_name is required").not().isEmpty(),
-  body("first_name", "first_name is required").not().isEmpty(),
-  body("last_name", "last_name is required").not().isEmpty(),
+
+  body("store_name", "store_name is required").not().isEmpty(),
+  body("store_location", "store_location is required").not().isEmpty(),
+  // body("first_name", "first_name is required").not().isEmpty(),
+  // body("last_name", "last_name is required").not().isEmpty(),
   body("email", "please enter a valid email").isEmail(),
   body("password", "Password must be minimum 6 character ").isLength({
     min: 8,
@@ -28,8 +29,8 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
     //deconstructing req.body
-    const { first_name, last_name, email, password } = req.body;
-    // const { name, store_name, email, password } = req.body;
+    // const { first_name, last_name, email, password } = req.body;
+    const { store_name, store_location, email, password } = req.body;
 
     //finding user by email and checking if it already exist
     try {
@@ -41,19 +42,19 @@ router.post(
         });
       }
       //if user doesnot exist we will create new user using User model
-      user = new User({
-        first_name,
-        last_name,
-        email,
-        password,
-      });
-
       // user = new User({
-      //   name,
-      //   store_name,
+      //   first_name,
+      //   last_name,
       //   email,
       //   password,
       // });
+
+      user = new User({
+        store_name,
+        store_location,
+        email,
+        password,
+      });
 
       //we will hash the password before saving to database with bcrypt
 
